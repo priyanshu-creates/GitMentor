@@ -1,0 +1,123 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@layer base {
+  :root {
+    --background: 220 13% 97%; /* #F6F8FA */
+    --foreground: 210 17% 18%; /* #24292F */
+    --card: 0 0% 100%;
+    --card-foreground: 210 17% 18%; /* #24292F */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 17% 18%; /* #24292F */
+    --primary: 210 17% 18%; /* #24292F - Dark Blue */
+    --primary-foreground: 0 0% 98%; /* Light color for text on primary */
+    --secondary: 220 13% 97%; /* #F6F8FA - Light Gray */
+    --secondary-foreground: 210 17% 18%; /* #24292F */
+    --muted: 220 14% 93%; /* Slightly darker gray for muted elements */
+    --muted-foreground: 210 10% 40%; 
+    --accent: 158 64% 48%; /* #2EA44F - Teal */
+    --accent-foreground: 0 0% 98%; /* Light color for text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 88%; /* Slightly darker border */
+    --input: 0 0% 100%; /* White input background */
+    --input-border: 220 13% 85%; /* Border for input */
+    --ring: 158 64% 48%; /* Teal for focus rings */
+    --chart-1: 158 64% 48%; /* Teal */
+    --chart-2: 210 17% 35%; /* Darker Blue */
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem; /* Standard radius */
+
+    /* Sidebar variables - kept for ShadCN compatibility but might not be used directly */
+    --sidebar-background: 210 17% 15%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 158 64% 48%;
+    --sidebar-primary-foreground: 210 17% 12%;
+    --sidebar-accent: 158 64% 55%;
+    --sidebar-accent-foreground: 210 17% 12%;
+    --sidebar-border: 210 17% 25%;
+    --sidebar-ring: 158 64% 55%;
+  }
+
+  .dark {
+    --background: 210 17% 12%; /* Darker GitHub background */
+    --foreground: 0 0% 95%; /* Light gray text */
+    --card: 210 17% 15%; /* Slightly lighter card background */
+    --card-foreground: 0 0% 95%;
+    --popover: 210 17% 15%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 158 64% 48%; /* Teal as primary in dark mode */
+    --primary-foreground: 210 17% 12%; 
+    --secondary: 210 17% 18%; /* #24292F */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 210 17% 22%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 158 64% 55%; /* Brighter Teal */
+    --accent-foreground: 210 17% 12%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 17% 25%;
+    --input: 210 17% 20%;
+    --input-border: 210 17% 30%;
+    --ring: 158 64% 55%; /* Brighter Teal for focus rings */
+    --chart-1: 158 64% 55%; /* Brighter Teal */
+    --chart-2: 210 17% 60%; /* Lighter Blue */
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    /* Dark Sidebar variables */
+    --sidebar-background: 210 17% 10%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 158 64% 55%;
+    --sidebar-primary-foreground: 210 17% 10%;
+    --sidebar-accent: 158 64% 60%;
+    --sidebar-accent-foreground: 210 17% 10%;
+    --sidebar-border: 210 17% 20%;
+    --sidebar-ring: 158 64% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-secondary text-foreground; /* Use secondary for main background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  /* Ensure input fields have appropriate styling in both modes */
+  input, textarea, select {
+    @apply border bg-input text-foreground;
+    border-color: hsl(var(--input-border));
+  }
+  
+  .prose {
+    color: hsl(var(--foreground));
+  }
+  .prose code {
+    color: hsl(var(--accent));
+  }
+  .prose a {
+    color: hsl(var(--accent));
+    @apply hover:opacity-80;
+  }
+  .dark .prose {
+     color: hsl(var(--foreground));
+  }
+   .dark .prose code {
+    color: hsl(var(--accent));
+  }
+  .dark .prose a {
+    color: hsl(var(--accent));
+  }
+
+}
